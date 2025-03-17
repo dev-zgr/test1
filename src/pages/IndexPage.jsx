@@ -66,7 +66,7 @@ export const IndexPage = () => {
                                                link={"mailto:ozgurkamaliprofessional@gmail.com"}/>
                         </div>
                         <div className={"flex flex-row justify-around w-full"}>
-                            <TechCardComponent label={"CV"} link={"https://github.com/dev-zgr"}/>
+                            <TechCardComponent label={"CV"} link={"docs/cv.pdf"}/>
                         </div>
 
                     </div>
