@@ -1,0 +1,69 @@
+import {HiOutlineExternalLink} from "react-icons/hi";
+import {IoLocationSharp} from "react-icons/io5";
+import {BsCalendar2Date} from "react-icons/bs";
+import {motion} from "framer-motion";
+
+
+export const EducationCard = ({schoolName, schoolLogoSrc, schoolLink, location, activeDates, position, additionalInfo}) => {
+    return (
+
+        <motion.button
+            whileHover={{scale: 1.02}}
+            whileDrag={{scale: 1}}
+            className={"flex justify-center w-full"}
+        >
+            <li
+                className="flex flex-row justify-between items-center w-[90%] bg-white ring ring-gray-300 rounded-lg shadow-lg p-8 mt-4">
+                <div className={"flex  flex-col self-start  mt-2"}>
+                    <div className={"flex items-center"}>
+                        <h3 className="font-semibold text-slate-900 text-3xl text-center inline">
+                            {schoolName}
+                        </h3>
+                        {schoolLink && (
+                            <>
+                                <p className="inline ml-4 text-slate-700 text-3xl"> | </p>
+                                <button onClick={() => {
+                                    window.open(schoolLink, "_blank")
+                                }}
+                                        className={"hover:text-sky-400 text-slate-700"}
+                                >
+                                    <HiOutlineExternalLink
+                                        className={"inline text-3xl text-slate-900 ml-2 hover:text-sky-600"}/>
+                                </button>
+                            </>
+                        )}
+                    </div>
+                    <div className={"flex items-center"}>
+                        <IoLocationSharp
+                            className={"inline  self-center text-1xl text-slate-500 hover:text-sky-600 align"}/>
+                        <p className="inline text-slate-500 text-1xl mr-2"> {location} | </p>
+                        <BsCalendar2Date
+                            className={"inline self-center text-1xl text-slate-500 hover:text-sky-600 align"}/>
+                        <p className="inline ml-4 text-slate-500 text-1xl ml-1"> {activeDates}</p>
+                    </div>
+                    <div className={"flex self-start"}>
+                        <h4 className="font-semibold text-slate-900 text-2xl text-center inline">
+                            {position}
+                        </h4>
+
+                    </div>
+                    <ul role="list" className="flex flex-col flex-start list-disc marker:text-sky-400 ml-4">
+                        {
+                            additionalInfo && additionalInfo.length > 0 ? (
+                                additionalInfo.map((addition, index) => (
+                                    <li key={index}>
+
+                                        <p className={"text-left text-slate-900"}>{addition}</p>
+                                    </li>
+                                ))
+                            ) : null}
+                    </ul>
+                </div>
+
+                <img src={schoolLogoSrc}
+                     className="w-32 h-32 rounded-full object-cover" alt="Your Photo"/>
+            </li>
+        </motion.button>
+
+    )
+}

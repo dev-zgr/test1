@@ -1,10 +1,13 @@
+import {ProfessionalLayoutPage} from "./pages/ProfessionalLayoutPage.jsx";
+import {IndexPage} from "./pages/IndexPage.jsx";
+
 function App() {
 
   return (
       <>
-          <h1 className="text-3xl font-bold underline bg-sky-300">
-              Hello world!
-          </h1>
+          <ProfessionalLayoutPage>
+              <IndexPage/>
+          </ProfessionalLayoutPage>
       </>
   )
 }
