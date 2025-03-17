@@ -6,8 +6,10 @@ const scrollToIcon = (id) => {
 export const HeaderComponent = ({...rest}) => {
 
     const menuSections = [
-        { path: "education", name: "Education" },
-        { path: "achievements", name: "Achievements" },
+        { path: "education", name: "Eğitim" },
+        { path: "achievements", name: "Başarımlar" },
+        { path: "publications", name: "Akademik Yayınlar & Sunumlar" },
+
     ];
 
     const accountSections = [];

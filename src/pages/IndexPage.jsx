@@ -7,9 +7,10 @@ import {TechCardComponent} from "../components/TechCardComponent.jsx";
 import {IoMailUnreadSharp} from "react-icons/io5";
 import GenerateRandomTechComponent from "../components/GenerateRandomTechComponent.jsx";
 import {EducationCard} from "../components/EducationCard.jsx";
-import {achievementsHistory, educationHistory} from "../config/professional_config.js";
+import {achievementsHistory, educationHistory, publicationHistory} from "../config/professional_config.js";
 import {SectionWrapper} from "../components/SectionWrapper.jsx";
 import {AchievementsCard} from "../components/AchievementsCard.jsx";
+import PublicationsCardComponent from "../components/PublicationsCardComponent.jsx";
 
 
 export const IndexPage = () => {
@@ -92,7 +93,7 @@ export const IndexPage = () => {
                         />
                     ))}
                 </SectionWrapper>
-                <SectionWrapper  className={"mt-30"} headerOne={"Projeler"} headerTwo={"Geçmişte içersinde Bulunduğum bazı projeler..."} id={"achievements"}>
+                <SectionWrapper  className={"mt-30"} headerOne={"Başarımlar"} headerTwo={"Geçmişte içersinde Bulunduğum bazı araştırma projeleri ve Yarışamalar..."} id={"achievements"}>
                     {achievementsHistory.map((achievement, index) => (
                         <AchievementsCard
                             key={index}
@@ -102,6 +103,20 @@ export const IndexPage = () => {
                             location={achievement.location}
                             activeDates={achievement.activeDates}
                             additionalInfo={achievement.additionalInfo}
+                        />
+                    ))}
+                </SectionWrapper>
+                <SectionWrapper  className={"mt-30"} headerOne={"Akademik Yayınlar & Sunumlar"} headerTwo={"Geçmişte içersinde Bulunduğum bazı araştırma projeleri ve akademik yayınlar"} id={"publications"}>
+                    {publicationHistory.map((publication, index) => (
+                        <PublicationsCardComponent
+                            key={index}
+                            publicationName={publication.publicationName}
+                            conferenceName = {publication.conferenceName}
+                            publicationLogoSrc={publication.publicationLogoSrc}
+                            projectLink={publication.projectLink}
+                            location={publication.location}
+                            dates={publication.dates}
+                            additionalInfo={publication.additionalInfo}
                         />
                     ))}
                 </SectionWrapper>

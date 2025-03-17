@@ -3,7 +3,7 @@ import {IoLocationSharp} from "react-icons/io5";
 import {BsCalendar2Date} from "react-icons/bs";
 import {motion} from "framer-motion";
 
-export const AchievementsCard = ({projectName, projectLogoSrc, projectLink, location, activeDates , additionalInfo}) => {
+export const PublicationsCardComponent = ({publicationName, publicationLogoSrc, projectLink, conferenceName,location, dates , additionalInfo}) => {
     console.log(additionalInfo)
     return (
 
@@ -16,23 +16,24 @@ export const AchievementsCard = ({projectName, projectLogoSrc, projectLink, loca
                 className="flex flex-row justify-between items-center w-[90%] bg-white ring ring-gray-300 rounded-lg shadow-lg p-8 mt-4">
                 <div className={"flex  flex-col self-start  mt-2"}>
                     <div className={"flex items-center"}>
-                        <h3 className="font-semibold text-slate-900 text-3xl text-center inline text-left
+                        <h3 className="font-semibold text-slate-900 text-3xl inline text-left
                         ">
-                            {projectName}
+                            {publicationName}
+                            {projectLink && (
+                                <>
+                                    <p className="inline-flex ml-4 text-slate-700 text-3xl"> | </p>
+                                    <button onClick={() => {
+                                        window.open(projectLink, "_blank")
+                                    }}
+                                            className={"hover:text-sky-400 text-slate-700"}
+                                    >
+                                        <HiOutlineExternalLink
+                                            className={"inline text-3xl text-slate-900 ml-2 hover:text-sky-600"}/>
+                                    </button>
+                                </>
+                            )}
                         </h3>
-                        {projectLink && (
-                            <>
-                                <p className="inline ml-4 text-slate-700 text-3xl"> | </p>
-                                <button onClick={() => {
-                                    window.open(projectLink, "_blank")
-                                }}
-                                        className={"hover:text-sky-400 text-slate-700"}
-                                >
-                                    <HiOutlineExternalLink
-                                        className={"inline text-3xl text-slate-900 ml-2 hover:text-sky-600"}/>
-                                </button>
-                            </>
-                        )}
+
                     </div>
                     <div className={"flex items-center"}>
                         <IoLocationSharp
@@ -40,7 +41,7 @@ export const AchievementsCard = ({projectName, projectLogoSrc, projectLink, loca
                         <p className="inline text-slate-500 text-1xl mr-2"> {location} | </p>
                         <BsCalendar2Date
                             className={"inline self-center text-1xl text-slate-500 hover:text-sky-600 align"}/>
-                        <p className="inline ml-4 text-slate-500 text-1xl ml-1"> {activeDates}</p>
+                        <p className="inline ml-4 text-slate-500 text-1xl ml-1"> {dates}</p>
                     </div>
                     <ul role="list" className="flex flex-col flex-start list-disc marker:text-sky-700 ml-6">
                         {
@@ -55,7 +56,7 @@ export const AchievementsCard = ({projectName, projectLogoSrc, projectLink, loca
                     </ul>
                 </div>
 
-                <img src={projectLogoSrc}
+                <img src={publicationLogoSrc}
                      className="w-32 h-32 rounded-full object-cover" alt="Your Photo"/>
             </li>
         </motion.button>
@@ -63,3 +64,4 @@ export const AchievementsCard = ({projectName, projectLogoSrc, projectLink, loca
 
     )
 }
+export default PublicationsCardComponent
