@@ -1,7 +1,7 @@
 export const TechCardComponent = ({ icon, label, link }) => {
     const handleClick = () => {
         if (label === "CV") {
-            window.open("/cv.pdf", "_blank");  // Replace with your actual CV file name
+            window.open("docs/cv.pdf", "_blank");  // Replace with your actual CV file name
         } else if (link.startsWith("mailto:")) {
             window.location.href = link; // Opens default mail client
         } else {
