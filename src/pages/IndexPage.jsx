@@ -47,7 +47,7 @@ export const IndexPage = () => {
 
                     <div
                         className="relative flex flex-col items-center w-[40%] bg-white ring ring-gray-300 rounded-lg shadow-lg p-8 mt-[10vh]">
-                        <img src="./public/huseyin_ozgur_kamali.jpg"
+                        <img src="images/huseyin_ozgur_kamali.jpg"
                              className="w-32 h-32 rounded-full object-cover" alt="Your Photo"/>
                         <h1 className="font-semibold text-slate-900 text-3xl text-center mt-8">
                             Özgür Kamalı
@@ -77,8 +77,8 @@ export const IndexPage = () => {
 
             </motion.div>
 
-            <div className="mt-[25vh] bg-neutral-50 z-10 p-8">
-                <SectionWrapper headerOne={"Eğitim"} headerTwo={"Eğitim Geçmişim"}>
+            <div className="mt-[25vh] bg-neutral-50 z-10 p-8" >
+                <SectionWrapper headerOne={"Eğitim"} headerTwo={"Eğitim Geçmişim"} id={"education"}>
                     {educationHistory.map((education, index) => (
                         <EducationCard
                             key={index}
@@ -92,7 +92,7 @@ export const IndexPage = () => {
                         />
                     ))}
                 </SectionWrapper>
-                <SectionWrapper  className={"mt-30"} headerOne={"Projeler"} headerTwo={"Geçmişte içersinde Bulunduğum bazı projeler..."}>
+                <SectionWrapper  className={"mt-30"} headerOne={"Projeler"} headerTwo={"Geçmişte içersinde Bulunduğum bazı projeler..."} id={"achievements"}>
                     {achievementsHistory.map((achievement, index) => (
                         <AchievementsCard
                             key={index}

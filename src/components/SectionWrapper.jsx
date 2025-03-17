@@ -1,6 +1,6 @@
-export const SectionWrapper = ({headerOne, headerTwo, className, children}) => {
+export const SectionWrapper = ({headerOne, headerTwo, className, id,children}) => {
     return (
-        <div className={className}>
+        <div className={className} id={id}>
             <h1 className="font-bold text-slate-900 text-4xl text-center">
                 {headerOne}
             </h1>

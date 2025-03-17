@@ -1,21 +1,16 @@
 import {motion} from "framer-motion";
 
+const scrollToIcon = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+};
 export const HeaderComponent = ({...rest}) => {
 
     const menuSections = [
-        { path: "/home", name: "Home" },
-        { path: "/services", name: "Services" },
-        { path: "/about-us", name: "About Us" },
-        { path: "/blog", name: "Blog" },
-        { path: "/contact", name: "Contact" },
+        { path: "education", name: "Education" },
+        { path: "achievements", name: "Achievements" },
     ];
 
-    const accountSections = [
-        { path: "/profile", name: "Profile" },
-        { path: "/settings", name: "Settings" },
-        { path: "/notifications", name: "Notifications" },
-        { path: "/logout", name: "Logout" },
-    ];
+    const accountSections = [];
     let className = "absolute sticky top-0 px-10 py-6 pt-6 lg:pt-8  backdrop-blur-2xl text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200 border-b border-slate-900/10 z-30  w-full";
     if(rest.fixed){
         className = "absolute fixed top-0 px-10 py-6 pt-6 lg:pt-8  backdrop-blur-2xl text-slate-700 font-semibold text-sm leading-6 dark:text-slate-200 border-b border-slate-900/10 z-30  w-full";
@@ -32,7 +27,7 @@ export const HeaderComponent = ({...rest}) => {
                     <nav >
                         <ul className={"flex items-center gap-x-8"}>
                             {menuSections.map((section, index) => {
-                                return <HeaderButtonMetaComponent key={index} url={section.path} buttonLabel={section.name}/>
+                                return <HeaderButtonMetaComponent key={index} sectionID={section.path} buttonLabel={section.name}/>
                             })}
                         </ul>
                     </nav>
@@ -46,7 +41,7 @@ export const HeaderComponent = ({...rest}) => {
                         <ul className={"flex items-center gap-x-8"}>
                             {
                                 accountSections.map((section, index) => {
-                                    return <HeaderButtonMetaComponent key={index} url={section.path} buttonLabel={section.name}/>
+                                    return <HeaderButtonMetaComponent key={index} buttonLabel={section.name}/>
                                 })
                             }
                         </ul>
@@ -61,17 +56,11 @@ export const HeaderComponent = ({...rest}) => {
 }
 export default HeaderComponent
 
-export const HeaderButtonMetaComponent = ({url, buttonLabel, ...rest}) => {
+export const HeaderButtonMetaComponent = ({buttonLabel,sectionID, ...rest}) => {
     return (
         <li {...rest}>
-            <div>
-                <button className={ ({isActive}) => {
-                    if(isActive){
-                        return "text-sky-600 underline underline-offset-2"
-                    }else{
-                        return "hover:text-sky-400 text-slate-700"
-                    }
-                }} to={url}>{buttonLabel}</button>
+            <div className={"hover:text-sky-600"}>
+                <button onClick={() => scrollToIcon(sectionID)} >{buttonLabel}</button>
             </div>
 
         </li>
